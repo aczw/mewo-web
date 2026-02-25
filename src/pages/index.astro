@@ -17,10 +17,12 @@ import Logo from "@/assets/logo.svg";
         launch, easy to use, and very customizable.
       </p>
       <p>
-        Source code can be <a href="https://github.com/aczw/mewo"
-          >found on GitHub</a
-        > and downloads can be found <a
-          href="https://github.com/aczw/mewo/releases">on the Releases</a
+        Source code can be <a
+          href="https://github.com/aczw/mewo"
+          target="_blank">found on GitHub</a
+        > and downloads <span style="text-decoration: line-through;">can</span> will
+        be found <a href="https://github.com/aczw/mewo/releases" target="_blank"
+          >on the Releases</a
         > page.
       </p>
     </section>
@@ -28,8 +30,9 @@ import Logo from "@/assets/logo.svg";
     <section>
       <h2 id="blog">Dev blog</h2>
       <p>
-        Read about the development process and watch me slowly go insane. Coming
-        soon!
+        Read about the development process and watch me slowly go insane. <span
+          style="font-style: italic;">Coming soon.</span
+        >
       </p>
     </section>
   </main>
@@ -47,10 +50,15 @@ import Logo from "@/assets/logo.svg";
     max-width: var(--content-w);
     margin-inline: auto;
 
+    a {
+      color: var(--col-black);
+      text-decoration: underline;
+    }
+
     > section {
       > h2 {
         font: 3rem "League Gothic";
-        margin-block-end: 1.5rem;
+        margin-block-end: 1.75rem;
       }
 
       > p:not(:last-child) {
