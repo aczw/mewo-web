@@ -16,11 +16,21 @@ import Logo from "@/assets/logo.svg";
         testing, and experimentation. It focuses on reducing friction: quick to
         launch, easy to use, and very customizable.
       </p>
+      <p>
+        Source code can be <a href="https://github.com/aczw/mewo"
+          >found on GitHub</a
+        > and downloads can be found <a
+          href="https://github.com/aczw/mewo/releases">on the Releases</a
+        > page.
+      </p>
     </section>
 
     <section>
       <h2 id="blog">Dev blog</h2>
-      <p>Read about the development process and watch me slowly go insane.</p>
+      <p>
+        Read about the development process and watch me slowly go insane. Coming
+        soon!
+      </p>
     </section>
   </main>
 </BaseLayout>
@@ -39,7 +49,12 @@ import Logo from "@/assets/logo.svg";
 
     > section {
       > h2 {
-        margin-block-end: 1.25rem;
+        font: 3rem "League Gothic";
+        margin-block-end: 1.5rem;
+      }
+
+      > p:not(:last-child) {
+        margin-block-end: 1.5rem;
       }
 
       &:not(:last-child) {
