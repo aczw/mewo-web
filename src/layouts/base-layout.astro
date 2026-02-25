@@ -2,17 +2,43 @@
 import "@/styles/global.css";
 import "@/styles/fonts.css";
 import "@/styles/variables.css";
+
+const TITLE = "Mewo";
+const DESCRIPTION =
+  "Desktop shader editor. Offline-first, user-friendly, and free.";
+const OG_IMAGE_URL = "/_files/og.png";
+
+const currentUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const canonicalUrl = currentUrl.replace(/\/+$/, "");
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <meta name="description" content={DESCRIPTION} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="light dark" />
 
-    <title>Mewo</title>
+    <meta property="og:site_name" content="Mewo" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={TITLE} />
+    <meta property="og:description" content={DESCRIPTION} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={OG_IMAGE_URL} />
+
+    <meta property="twitter:image" content={OG_IMAGE_URL} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={TITLE} />
+    <meta property="twitter:description" content={DESCRIPTION} />
+
+    <link rel="canonical" href={canonicalUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <title>{TITLE}</title>
 
     <script
       is:inline
