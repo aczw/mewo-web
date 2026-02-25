@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+import "@/styles/variables.css";
 ---
 
 <html lang="en">
@@ -23,3 +24,10 @@ import "@/styles/global.css";
     <slot />
   </body>
 </html>
+
+<style>
+  body {
+    background-color: var(--col-blue);
+    color: var(--col-black);
+  }
+</style>

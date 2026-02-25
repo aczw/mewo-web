@@ -1,16 +1,50 @@
 ---
 import BaseLayout from "@/layouts/base-layout.astro";
+import Logo from "@/assets/logo.svg";
 ---
 
 <BaseLayout>
-  <header><h1>Mewo</h1></header>
-  <main></main>
+  <header>
+    <h1 aria-label="Mewo"><Logo /></h1>
+  </header>
+
+  <main>
+    <section>
+      <h2 id="about">Desktop shader editor</h2>
+      <p>
+        Mewo is a shader development environment built for creative coding,
+        testing, and experimentation. It focuses on reducing friction: quick to
+        launch, easy to use, and very customizable.
+      </p>
+    </section>
+
+    <section>
+      <h2 id="blog">Dev blog</h2>
+      <p>Read about the development process and watch me slowly go insane.</p>
+    </section>
+  </main>
 </BaseLayout>
 
 <style>
   header {
-    max-width: 600px;
+    padding: 3rem 1rem;
+    max-width: var(--content-w);
     margin-inline: auto;
-    background-color: red;
+  }
+
+  main {
+    padding-inline: 1rem;
+    max-width: var(--content-w);
+    margin-inline: auto;
+
+    > section {
+      > h2 {
+        margin-block-end: 1.25rem;
+      }
+
+      &:not(:last-child) {
+        margin-block-end: 3rem;
+      }
+    }
   }
 </style>
