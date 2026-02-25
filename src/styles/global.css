@@ -1,0 +1,63 @@
+/**
+ * CSS style reset. Inspiration:
+ * - https://www.joshwcomeau.com/css/custom-css-reset
+ * - https://x.com/souporserious/status/2013654647248949698
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  min-width: 0;
+  min-height: 0;
+  text-box: trim-both cap alphabetic;
+
+  &:not(dialog) {
+    margin: 0;
+  }
+}
+
+:root {
+  color-scheme: light dark;
+
+  @media (prefers-reduced-motion: no-preference) {
+    interpolate-size: allow-keywords;
+  }
+}
+
+html {
+  text-size-adjust: 100%;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+p {
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}

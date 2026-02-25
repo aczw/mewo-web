@@ -12,13 +12,6 @@ const config: Config = {
         parser: "astro",
       },
     },
-    {
-      files: "*.jsonc",
-      options: {
-        // See https://github.com/prettier/prettier/issues/15956
-        trailingComma: "none",
-      },
-    },
   ],
 };
 
