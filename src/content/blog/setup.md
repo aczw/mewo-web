@@ -6,3 +6,13 @@ slug: setup
 ---
 
 Testing testing. Here's some content.
+
+- bullet
+- point
+- over here
+
+```
+what fun. here's a code block.
+```
+
+> good lord what happened
