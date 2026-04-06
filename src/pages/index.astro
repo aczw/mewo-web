@@ -1,6 +1,18 @@
 ---
+import { getCollection } from "astro:content";
+
 import BaseLayout from "@/layouts/base-layout.astro";
 import Logo from "@/assets/logo.svg";
+
+const MONTH_DAY = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+const blogPosts = (await getCollection("blog")).sort(
+  (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
+);
 ---
 
 <BaseLayout>
@@ -40,10 +52,30 @@ import Logo from "@/assets/logo.svg";
 
       <ul class="blog-entries">
         {
-          Array.from({ length: 5 }).map((_, index) => (
+          blogPosts.map(({ data: { title, published }, id }, index) => (
             <li>
               <span class="bullet" aria-hidden="true">
                 {index + 1}
+              </span>
+
+              <a href={`/blog/${id}`}>
+                <span class="title">{title}</span>
+                <time
+                  style="font-style: italic;"
+                  datetime={published.toISOString()}
+                >
+                  {MONTH_DAY.format(published)}
+                </time>
+              </a>
+            </li>
+          ))
+        }
+
+        {
+          Array.from({ length: 3 }).map((_, index) => (
+            <li>
+              <span class="bullet" aria-hidden="true">
+                {index + 2}
               </span>
 
               <a href="/">
@@ -92,7 +124,7 @@ import Logo from "@/assets/logo.svg";
       > ul.blog-entries {
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 1.25rem;
 
         list-style: none;
         padding: 0px;
@@ -101,7 +133,6 @@ import Logo from "@/assets/logo.svg";
           --bullet-size: 22px;
 
           display: flex;
-          align-items: center;
           gap: 0.85rem;
 
           > span.bullet {
@@ -114,6 +145,7 @@ import Logo from "@/assets/logo.svg";
             border-radius: 9999px;
             cursor: default;
             user-select: none;
+            flex-shrink: 0;
 
             width: var(--bullet-size);
             height: var(--bullet-size);
@@ -121,10 +153,11 @@ import Logo from "@/assets/logo.svg";
 
           > a {
             display: flex;
-            align-items: center;
-            gap: 0.85rem;
+            flex-direction: column;
+            gap: 0.6rem;
 
             text-decoration: none;
+            flex-grow: 1;
 
             > span.title {
               font-weight: 600;
