@@ -37,6 +37,23 @@ import Logo from "@/assets/logo.svg";
           >Coming soon.</span
         >
       </p>
+
+      <ul class="blog-entries">
+        {
+          Array.from({ length: 5 }).map((_, index) => (
+            <li>
+              <span class="bullet" aria-hidden="true">
+                {index + 1}
+              </span>
+
+              <a href="/">
+                <span>test</span>
+                <span style="font-style: italic;">September 6</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </section>
   </main>
 </BaseLayout>
@@ -70,6 +87,46 @@ import Logo from "@/assets/logo.svg";
 
       &:not(:last-child) {
         margin-block-end: 3rem;
+      }
+
+      > ul.blog-entries {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        list-style: none;
+        padding: 0px;
+
+        > li {
+          --bullet-size: 22px;
+
+          display: flex;
+          align-items: center;
+          gap: 0.85rem;
+
+          > span.bullet {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: var(--col-dark-blue);
+            color: var(--col-light-blue);
+            border-radius: 9999px;
+            cursor: default;
+            user-select: none;
+
+            width: var(--bullet-size);
+            height: var(--bullet-size);
+          }
+
+          > a {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+
+            text-decoration: none;
+          }
+        }
       }
     }
   }
